@@ -12,7 +12,12 @@ namespace DK.DeductionCalculator.Core
         private static int EmployeeDependentAnnualDeduction = 500;
         private static decimal NameDiscount = 0.1M;
         private static string NameDiscountLetter = "A";
-        
+
+        /// <summary>
+        /// Calculates the annual benefit deduction for an employee in a contrived manner.
+        /// </summary>
+        /// <param name="employee">The <see cref="Employee"/>employee</param> to calculate the deduction for. Cannot be null.
+        /// <returns>The annual cost of benefits for the employee.</returns>
         public decimal CalculateEmployeeDeduction(Employee employee)
         {
             if (employee == null)
@@ -20,7 +25,17 @@ namespace DK.DeductionCalculator.Core
                 throw new ArgumentNullException(nameof(employee));
             }
 
-            decimal deductionTotal = EmployeeAnnualDeduction;
+            decimal deductionTotal = 0;
+
+            if (employee.FirstName.StartsWith(NameDiscountLetter) ||
+                employee.LastName.StartsWith(NameDiscountLetter))
+            {
+                deductionTotal = EmployeeAnnualDeduction - (EmployeeAnnualDeduction * NameDiscount);
+            }
+            else
+            {
+                deductionTotal = EmployeeAnnualDeduction;
+            }
 
             foreach (var dependent in employee.Dependents)
             {
