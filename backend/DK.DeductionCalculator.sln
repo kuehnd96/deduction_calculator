@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DK.DeductionCalculator.Web", "DK.DeductionCalculator.Web\DK.DeductionCalculator.Web.csproj", "{99966458-9155-4177-B2AC-EAA02D827F08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.DeductionCalculator.Core", "DK.DeductionCalculator.Core\DK.DeductionCalculator.Core.csproj", "{ED1003B8-DCCE-4898-B066-3670C728AA67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DK.DeductionCalculator.Core", "DK.DeductionCalculator.Core\DK.DeductionCalculator.Core.csproj", "{ED1003B8-DCCE-4898-B066-3670C728AA67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

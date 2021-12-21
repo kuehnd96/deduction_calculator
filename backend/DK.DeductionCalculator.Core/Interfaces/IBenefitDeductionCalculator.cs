@@ -7,6 +7,6 @@ namespace DK.DeductionCalculator.Core.Interfaces
     /// </summary>
     public interface IBenefitDeductionCalculator
     {
-        int CalculateEmployeeDeduction(Employee employee);
+        decimal CalculateEmployeeDeduction(Employee employee);
     }
 }
