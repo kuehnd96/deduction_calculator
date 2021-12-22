@@ -1,5 +1,8 @@
 ﻿namespace DK.DeductionCalculator.Core.Models
 {
+    /// <summary>
+    /// Models an employee of your company.
+    /// </summary>
     public class Employee
     {
         public string FirstName { get; set; }
