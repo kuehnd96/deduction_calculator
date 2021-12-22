@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "72fcb336-ca82-49fc-882b-1b6faba3de22",
+		"name": "Paylocity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DeductionCalculator",
+			"item": [
+				{
+					"name": "GetBenefitDeduction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"David\",\r\n  \"lastName\": \"Kuehn\",\r\n  \"dependents\": [\r\n    {\r\n      \"firstName\": \"Vanessa\",\r\n      \"lastName\": \"St. John\"\r\n    },\r\n    {\r\n      \"firstName\": \"Sebastian\",\r\n      \"lastName\": \"Kuehn\"\r\n    },\r\n    {\r\n      \"firstName\": \"Harrison\",\r\n      \"lastName\": \"Kuehn\"\r\n    },\r\n    {\r\n      \"firstName\": \"Sawyer\",\r\n      \"lastName\": \"Kuehn\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "https://localhost:7108/DeductionCalculator",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7108",
+							"path": [
+								"DeductionCalculator"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
