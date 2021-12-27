@@ -2,8 +2,11 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// TODO: Create environment variable files
+//  https://www.jvandemo.com/how-to-use-environment-variables-to-configure-your-angular-application-without-a-rebuild/
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: "https://localhost:7108/"
 };
 
 /*
