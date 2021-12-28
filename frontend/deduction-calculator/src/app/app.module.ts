@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeDeductionComponent } from './employee-deduction/employee-deduction.component';
 
 @NgModule({
@@ -14,7 +15,8 @@ import { EmployeeDeductionComponent } from './employee-deduction/employee-deduct
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Dependent} from '../models/dependent';
 import { Employee} from '../models/employee';
-import { webClient } from '../backend/webClient';
+import { WebClient } from '../backend/webClient';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
@@ -12,7 +12,8 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 export class EmployeeDeductionComponent implements OnInit {
   firstName?: string;
   lastName?: string;
-  dependents: Dependent[] = new Array(4);
+  dependents: Dependent[] = new Array();
+  deductionAmount: number = 0;
 
   employeeForm = new FormGroup({
     firstName: new FormControl(null, [Validators.required]),
@@ -24,7 +25,9 @@ export class EmployeeDeductionComponent implements OnInit {
     lastName: new FormControl(null, [Validators.required]),
   })
 
-  constructor() { }
+  constructor(private apiClient: WebClient) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -36,10 +39,19 @@ export class EmployeeDeductionComponent implements OnInit {
       newDependent.lastName = this.dependentForm.controls['lastName'].value
       
       this.dependents.push(newDependent);
+
+      this.dependentForm.controls['firstName'].setValue('');
+      this.dependentForm.controls['lastName'].setValue('');
     }
   }
 
   calculateDeduction() : void {
+    if (this.employeeForm.status == "VALID") {
+      let employee = new Employee();
+      employee.firstName = this.employeeForm.controls['firstName'].value;
+      employee.lastName = this.employeeForm.controls['lastName'].value;
 
+      this.deductionAmount = this.apiClient.calculateDeduction(employee);
+    }
   }
 }

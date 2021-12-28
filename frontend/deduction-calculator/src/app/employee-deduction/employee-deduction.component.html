@@ -1,1 +1,66 @@
-<p>employee-deduction works!</p>
+<header>
+    <h2>Employee Annual Deduction</h2>
+</header>
+
+<main>
+    <div>
+        <div>
+            <h3>Employee</h3>
+            <form [formGroup]="employeeForm">
+                <div>
+                    <div>
+                        <label for="firstName">
+                          First Name
+                        </label>
+                        <input type="text" formControlName="firstName" name="firstName" id="firstName"/>
+                    </div>
+                    <div>
+                        <label for="lastName">
+                          Last Name
+                        </label>
+                        <input type="text" formControlName="lastName" name="lastName" id="lastName"/>
+                    </div>
+                    <div>
+                        <button Source="submit" (click)="calculateDeduction()" [disabled]="employeeForm.invalid || !employeeForm.dirty">
+                            Calculate Deduction
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div>
+            <h3>Dependents</h3>
+            <form [formGroup]="dependentForm">
+                <div>
+                    <div>
+                        <label for="firstName">
+                          First Name
+                        </label>
+                        <input type="text" formControlName="firstName" name="firstName" id="firstName"/>
+                    </div>
+                    <div>
+                        <label for="lastName">
+                          Last Name
+                        </label>
+                        <input type="text" formControlName="lastName" name="lastName" id="lastName"/>
+                    </div>
+                    <div>
+                        <button Source="submit" (click)="addDependent()" [disabled]="dependentForm.invalid || !dependentForm.dirty">
+                            Add Dependent
+                        </button>
+                    </div>
+                    <div *ngIf="dependents.length > 0">
+                        <ul>
+                            <li *ngFor="let dependent of dependents">
+                                <div>
+                                    <span>{{dependent.firstName}} {{dependent.lastName}}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
