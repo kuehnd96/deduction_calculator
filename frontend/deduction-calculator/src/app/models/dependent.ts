@@ -4,12 +4,4 @@ export class Dependent {
 
     constructor() {
     }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["firstName"] = this.firstName;
-        data["lastName"] = this.lastName;
-
-        return data;
-    }
 }

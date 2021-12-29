@@ -51,7 +51,9 @@ export class EmployeeDeductionComponent implements OnInit {
       employee.firstName = this.employeeForm.controls['firstName'].value;
       employee.lastName = this.employeeForm.controls['lastName'].value;
 
-      this.deductionAmount = this.apiClient.calculateDeduction(employee);
+      employee.dependents = this.dependents;
+
+      this.apiClient.calculateDeduction(employee).subscribe(deductionAmount => this.deductionAmount = deductionAmount);
     }
   }
 }

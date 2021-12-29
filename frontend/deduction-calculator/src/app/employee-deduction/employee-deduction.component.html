@@ -21,6 +21,9 @@
                         <input type="text" formControlName="lastName" name="lastName" id="lastName"/>
                     </div>
                     <div>
+                        Annual Deduction: ${{deductionAmount}}
+                    </div>
+                    <div>
                         <button Source="submit" (click)="calculateDeduction()" [disabled]="employeeForm.invalid || !employeeForm.dirty">
                             Calculate Deduction
                         </button>
