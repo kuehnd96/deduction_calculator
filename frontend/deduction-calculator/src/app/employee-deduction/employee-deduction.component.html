@@ -21,7 +21,9 @@
                         <input type="text" formControlName="lastName" name="lastName" id="lastName"/>
                     </div>
                     <div>
-                        Annual Deduction: ${{deductionAmount}}
+                        <p>Gross Pay: ${{grossPay}}</p>
+                        <p>Annual Deduction: ${{deductionAmount}}</p>
+                        <p>Take Home Pay: ${{takeHomePay}}</p>
                     </div>
                     <div>
                         <button Source="submit" (click)="calculateDeduction()" [disabled]="employeeForm.invalid || !employeeForm.dirty">

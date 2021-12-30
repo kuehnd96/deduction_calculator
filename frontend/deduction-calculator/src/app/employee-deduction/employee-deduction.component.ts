@@ -14,6 +14,8 @@ export class EmployeeDeductionComponent implements OnInit {
   lastName?: string;
   dependents: Dependent[] = new Array();
   deductionAmount: number = 0;
+  grossPay: number = 52000; // 2000 per paycheck * 26 weeks
+  takeHomePay: number = 0;
 
   employeeForm = new FormGroup({
     firstName: new FormControl(null, [Validators.required]),
@@ -53,7 +55,10 @@ export class EmployeeDeductionComponent implements OnInit {
 
       employee.dependents = this.dependents;
 
-      this.apiClient.calculateDeduction(employee).subscribe(deductionAmount => this.deductionAmount = deductionAmount);
+      this.apiClient.calculateDeduction(employee).subscribe(deductionAmount => {
+        this.deductionAmount = deductionAmount;
+        this.takeHomePay = this.grossPay - this.deductionAmount;
+      });
     }
   }
 }
