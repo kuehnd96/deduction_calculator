@@ -4,6 +4,7 @@ using DK.DeductionCalculator.Core.Interfaces;
 const string AllowAngularAppOriginPolicy = "AllowAngularApp";
 
 var builder = WebApplication.CreateBuilder(args);
+var angularBaseUrl = builder.Configuration["FrontEndBaseUrl"];
 
 // Add services to the container.
 
@@ -13,7 +14,7 @@ builder.Services.AddCors(options =>
                       builder =>
                       {
                           // TODO: Put this value in the app settings
-                          builder.WithOrigins("http://localhost:4200")
+                          builder.WithOrigins(angularBaseUrl)
                               .AllowAnyMethod()
                               .AllowAnyHeader();
                       });
@@ -29,12 +30,8 @@ builder.Services.AddTransient<IBenefitDeductionCalculator, ContrivedBenefitDeduc
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

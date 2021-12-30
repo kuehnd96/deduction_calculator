@@ -6,7 +6,8 @@
 //  https://www.jvandemo.com/how-to-use-environment-variables-to-configure-your-angular-application-without-a-rebuild/
 export const environment = {
   production: false,
-  baseUrl: "https://localhost:7108/"
+  //baseUrl: "https://localhost:7108/"
+  baseUrl: "https://as-deductioncalculator-backend.azurewebsites.net/"
 };
 
 /*
